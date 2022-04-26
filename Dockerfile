@@ -11,4 +11,5 @@ COPY --from=sdk --chown=dotnet:dotnet /usr/local/tmp/bin ./
 USER dotnet
 EXPOSE 5001
 ENV NAME=World
+ENV TLS_PATH=/etc/ssl/certs/tls.pfx
 ENTRYPOINT [ "dotnet", "HelloWorld.dll" ]
