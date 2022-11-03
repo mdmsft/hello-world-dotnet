@@ -8,8 +8,8 @@ WORKDIR /home/dotnet
 RUN addgroup dotnet
 RUN adduser -h /home/dotnet -G dotnet -D dotnet
 COPY --from=sdk --chown=dotnet:dotnet /usr/local/tmp/bin ./
-USER dotnet
+USER dotnet:dotnet
 EXPOSE 5001
 ENV NAME=World
-ENV TLS_PATH=/etc/ssl/certs/tls.pfx
+ENV TLS_PATH=""
 ENTRYPOINT [ "dotnet", "HelloWorld.dll" ]
